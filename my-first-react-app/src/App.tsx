@@ -1,24 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import IncreaseButton from './increaseButton'
 import TextBox  from './TextBox';
 import DecreaseButton from './decreaseButton'
+import StyledContainer from './container';
 
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const localCount = localStorage.getItem("variable")
+  const [count, setCount] = useState(localCount ?? 0)
+    useEffect(() => {
+    localStorage.setItem("variable", String(count))
+  }, [count])
+
+
   return (
-    <div className="App">
-      <IncreaseButton onClick={() => setCount(count + 1)}>
-        Increase Number
+    <StyledContainer>
+      <IncreaseButton onClick={() => setCount(+count+1)}>
+        {"Increase"}
       </IncreaseButton>
-      <DecreaseButton onClick={() => setCount(count-1)}>
-        Decrease Number
+      <DecreaseButton onClick={() => setCount(+count-1)}>
+        Decrease 
       </DecreaseButton>
       <TextBox>Current Value is: {count}</TextBox>
-    </div>
+      </StyledContainer>
   );
 }
 

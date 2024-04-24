@@ -1,10 +1,23 @@
 import styled from "styled-components"
 
-const DecreaseButton = styled.button`
+const StyledButton = styled.button`
 background-color: red;
-height: 50;
+height: 50px;
 width: 100px;
 font-size: large;
-margin-top: 20px;
+position: absolute;
+top: 25%;
+margin-left: 50%;
+font-weight: bold;
+font-family: 'Times New Roman', Times, serif;
 `
-export default DecreaseButton
+
+const DescreaseButton = ({children, onClick}: {children: string, onClick(): void}) => {
+    return (
+        <StyledButton onClick={onClick}>
+            {children}
+        </StyledButton>
+    )
+}
+
+export default DescreaseButton
