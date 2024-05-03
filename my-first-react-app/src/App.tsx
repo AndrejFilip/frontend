@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import TextBox from './TextBox';
-import StyledContainer from './container';
+import { StyledContainer } from './StyledContainer';
 import { Button } from './Button';
 import styled from 'styled-components';
+import { builtinModules } from 'module';
 
 const StyledPrimaryButton = styled(Button)`
   position: absolute;
@@ -26,10 +27,12 @@ function App() {
 
   return (
     <StyledContainer>
-      <StyledPrimaryButton color="primary" onClick={() => setCount(count + 1)}>
-        {'Increase'}
+      <StyledPrimaryButton {...{ onClick: () => setCount(count + 1) }}>
+        Increase
       </StyledPrimaryButton>
-      <StyledDangerButton color="danger" onClick={() => setCount(count - 1)}>
+
+      <StyledDangerButton
+        {...{ onClick: () => setCount(count - 1), primary: false }}>
         Decrease
       </StyledDangerButton>
 

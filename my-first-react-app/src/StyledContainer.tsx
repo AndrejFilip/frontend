@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledContainer = styled.div`
+export const StyledContainer = styled.div`
   background-color: orange;
   width: 100%;
   height: 500px;
@@ -8,5 +8,3 @@ const StyledContainer = styled.div`
   border: 5px solid black;
   position: relative;
 `;
-
-export default StyledContainer;

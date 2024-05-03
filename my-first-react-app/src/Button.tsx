@@ -1,33 +1,30 @@
 import { styled } from 'styled-components';
-import { Theme } from './ThemeProvider';
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ primary: boolean }>`
   font-size: large;
   font-family: 'Times New Roman', Times, serif;
   height: 50px;
   width: 100px;
   border: 2px solid;
   font-weight: bold;
-  color: ${(props) => props.theme.color};
-  background-color: ${(props) => props.theme.backgroundColor};
-  border-color: ${(props) => props.theme.borderColor};
+  color: white;
+  background-color: ${(props) => (props.primary ? 'green' : 'red')};
+  border-color: ${(props) => (props.primary ? 'green' : 'red')};
 `;
 
 export const Button = ({
   children,
   onClick,
-  color,
+  primary = true,
   ...rest
 }: {
   children: string;
+  primary?: boolean;
   onClick(): void;
-  color: string;
 }) => {
   return (
-    <Theme {...{ color }}>
-      <StyledButton {...{ onClick, color }} {...rest}>
-        {children}
-      </StyledButton>
-    </Theme>
+    <StyledButton {...{ onClick, primary }} {...rest}>
+      {children}
+    </StyledButton>
   );
 };
