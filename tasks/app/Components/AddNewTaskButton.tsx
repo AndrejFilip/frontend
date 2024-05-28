@@ -1,7 +1,7 @@
 'use client';
 
 import { CiSquarePlus } from 'react-icons/ci';
-import Modal from './Modal';
+import { Modal } from './Modal';
 import { FormEventHandler, useState } from 'react';
 import { Checkbox } from './Checkbox';
 import { postTasks } from '@/api/api';

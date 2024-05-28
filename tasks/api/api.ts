@@ -1,15 +1,15 @@
-import { Tasks } from "@/types/tasks"
+import { Task } from "@/types/tasks"
 
 const baseUrl = "http://localhost:3001"
 
 
-export const getTasks = async (): Promise<Tasks[]> => {
+export const getTasks = async (): Promise<Task[]> => {
 const response = await fetch(`${baseUrl}/tasks`, {cache: 'no-store'})
 const tasks = await response.json()
 return tasks
 }
 
-export const postTasks = async (task: Tasks): Promise<Tasks> => {
+export const postTasks = async (task: Task): Promise<Task> => {
     const response = await fetch(`${baseUrl}/tasks`, {
         method:'POST',
         headers: {
@@ -22,7 +22,7 @@ export const postTasks = async (task: Tasks): Promise<Tasks> => {
    return newTask
 }
 
-export const putTask = async ( task: Tasks ): Promise<Tasks> => {
+export const putTask = async ( task: Task ): Promise<Task> => {
     const response = await fetch(`${baseUrl}/tasks/${task.id}`, {
         method: 'PUT',
         headers: {
