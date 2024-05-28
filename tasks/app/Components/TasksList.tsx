@@ -22,7 +22,7 @@ export const TasksList: React.FC<TasksListProps> = ({ tasks }) => {
             <tr>
               <th>Number</th>
               <th>Task name</th>
-              <th>Done?</th>
+              <th>Done</th>
               <th>Edit/Delete</th>
             </tr>
           </thead>
