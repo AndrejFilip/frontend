@@ -16,7 +16,7 @@ export default async function Home() {
         </h1>
         <AddNewTaskButton />
 
-        <TasksList {...{ tasks: tasks }} />
+        <TasksList {...{ tasks }} />
       </div>
     </main>
   );

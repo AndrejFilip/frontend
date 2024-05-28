@@ -4,7 +4,11 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }) => {
+export const Modal: React.FC<ModalProps> = ({
+  modalOpen,
+  setModalOpen,
+  children,
+}) => {
   return (
     <div className={`modal ${modalOpen ? 'modal-open' : ''}`}>
       <div {...{ className: 'modal-box' }}>
@@ -20,5 +24,3 @@ const Modal: React.FC<ModalProps> = ({ modalOpen, setModalOpen, children }) => {
     </div>
   );
 };
-
-export default Modal;

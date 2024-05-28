@@ -1,19 +1,19 @@
 'use client';
 
-import { Tasks } from '@/types/tasks';
+import { Task } from '@/types/tasks';
 import React, { FormEventHandler, useState } from 'react';
 import { CiEdit } from 'react-icons/ci';
 import { MdDelete } from 'react-icons/md';
 import { Checkbox } from './Checkbox';
-import Modal from './Modal';
+import { Modal } from './Modal';
 import { deleteTask, putTask } from '@/api/api';
 import { useRouter } from 'next/navigation';
 
 interface TaskProps {
-  task: Tasks;
+  task: Task;
 }
 
-export const Task: React.FC<TaskProps> = ({ task }) => {
+export const TaskComponent: React.FC<TaskProps> = ({ task }) => {
   const [modalEditOpen, setModalEditOpen] = useState<boolean>(false);
   const [modalDeleteOpen, setModalDeleteOpen] = useState<boolean>(false);
   const [taskValue, setTaskValue] = useState<string>(task.name);

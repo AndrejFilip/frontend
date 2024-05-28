@@ -1,12 +1,12 @@
 'use client';
 
-import { Tasks } from '@/types/tasks';
-import { Task } from './Task';
+import { Task } from '@/types/tasks';
+import { TaskComponent } from './Task';
 import { useState } from 'react';
 import { SearchBar } from './SearchBar';
 
 interface TasksListProps {
-  tasks: Tasks[];
+  tasks: Task[];
 }
 
 export const TasksList: React.FC<TasksListProps> = ({ tasks }) => {
@@ -32,7 +32,7 @@ export const TasksList: React.FC<TasksListProps> = ({ tasks }) => {
                 return item.name.toLocaleLowerCase().includes(search);
               })
               .map((task) => (
-                <Task key={task.id} task={task} />
+                <TaskComponent key={task.id} task={task} />
               ))}
           </tbody>
         </table>

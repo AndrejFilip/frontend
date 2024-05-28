@@ -1,4 +1,4 @@
-export interface Tasks {
+export interface Task {
     id: string,
     name: string,
     completed: boolean
